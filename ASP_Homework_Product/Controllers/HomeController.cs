@@ -20,6 +20,9 @@ namespace ASP_Homework_Product.Controllers
 
         public IActionResult Index()
         {
+            Product product = new Product("Коленвал", 15000, "Коленчатый вал для Mercedes-Benz E500");
+            ViewBag.Product = product;
+
             return View();
         }
 

@@ -18,9 +18,14 @@ namespace ASP_Homework_Product.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public string Index()
         {
-            return View();
+            List<Product> products = new List<Product>() {
+                new Product("Death Stranding", 3990, "-"),
+                new Product("Days Gone", 2790, "-"),
+                new Product("Infamous", 1600 , "-")
+            };
+            return string.Join("\n", products);
         }
 
         public IActionResult Privacy()

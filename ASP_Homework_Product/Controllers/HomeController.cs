@@ -18,9 +18,11 @@ namespace ASP_Homework_Product.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public string Index()
         {
-            return View();
+            CatalogProducts catalog = new CatalogProducts();
+            var products = catalog.GetProducts();
+            return string.Join("\n", products);
         }
 
         public IActionResult Privacy()

@@ -20,11 +20,8 @@ namespace ASP_Homework_Product.Controllers
 
         public string Index()
         {
-            List<Product> products = new List<Product>() {
-                new Product("Death Stranding", 3990, "-"),
-                new Product("Days Gone", 2790, "-"),
-                new Product("Infamous", 1600 , "-")
-            };
+            CatalogProducts catalog = new CatalogProducts();
+            var products = catalog.GetProducts();
             return string.Join("\n", products);
         }
 

@@ -7,9 +7,9 @@ namespace ASP_Homework_Product
     public class CatalogProducts
     {
         private static List<Product> products = new List<Product>() {
-                new Product("Death Stranding", 3990, "-"),
-                new Product("Days Gone", 2790, "-"),
-                new Product("Infamous", 1600 , "-")
+                new Product("Death Stranding", 3990, "Какое-то описание"),
+                new Product("Days Gone", 2790, "Какое-то описание"),
+                new Product("Infamous", 1600 , "Какое-то описание")
         };
         
         public Product GetProduct(int id)

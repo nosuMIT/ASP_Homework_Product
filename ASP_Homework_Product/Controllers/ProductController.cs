@@ -5,11 +5,11 @@ namespace ASP_Homework_Product.Controllers
 {
     public class ProductController : Controller
     {
-        public string Index(int id)
+        public IActionResult Index(int id)
         {
             CatalogProducts catalog = new CatalogProducts();
-            Product products = catalog.GetProduct(id);
-            return products.ToString();
+            Product product = catalog.GetProduct(id);
+            return View(product);
         }
     }
 }

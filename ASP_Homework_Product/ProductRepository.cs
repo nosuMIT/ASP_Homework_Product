@@ -19,5 +19,10 @@ namespace ASP_Homework_Product
         {
             return Products;
         }
+
+        public Product TryGetById(int id)
+        {
+            return Products.FirstOrDefault(product => product.Id == id);
+        }
     }
 }

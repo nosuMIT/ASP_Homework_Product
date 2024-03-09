@@ -10,15 +10,16 @@
 
         public Product(string name, int cost, string description)
         {
+            unicId++;
             Name = name;
             Cost = cost;
             Description = description;
-            Id = unicId++;
+            Id = unicId;
         }
 
         public override string ToString()
         {
-            return $"{Id} {Name} {Cost} {Description}";
+            return $"{Id}\n{Name}\n{Cost}\n{Description}";
         }
     }
 }

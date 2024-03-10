@@ -2,7 +2,7 @@
 {
     public class Product
     {
-        static int unicId = 0;
+        private static int unicId = 0;
         public int Id { get; }
         public string Name { get; }
         public int Cost { get; }
@@ -15,6 +15,19 @@
             Cost = cost;
             Description = description;
             Id = unicId;
+        }
+
+        public bool CompareId(int id)
+        {
+            return id == Id;
+            /*if (id == this.Id)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }*/
         }
 
         public override string ToString()

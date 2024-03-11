@@ -7,12 +7,14 @@
         public string Name { get; }
         public decimal Cost { get; }
         public string Description { get; }
-        public Product(string name, decimal cost, string description)
+        public string ImgLink;
+        public Product(string name, decimal cost, string description, string imgLink)
         {
             Name = name;
             Cost = cost;
             Description = description;
             Id = unicId++;
+            ImgLink = imgLink;
         }
 
         public override string ToString()

@@ -9,7 +9,7 @@
     <div class="row">
         @foreach(var product in Model){
             <div class="col-4 card bg-info">
-                <img src="https://sneg.top/uploads/posts/2023-04/1680847855_sneg-top-p-kapibara-zhivotnoe-kartinki-krasivo-59.jpg"></img>
+                <img src="@product.ImgLink" class=""></img>
                 <a href="Product/Index/@product.Id">@product.Name</a>
                 <p>@product.Cost</p>
                 <p>@product.Description</p>

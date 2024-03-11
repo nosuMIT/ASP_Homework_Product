@@ -7,9 +7,11 @@ namespace ASP_Homework_Product
     public class CatalogProducts
     {
         private static List<Product> products = new List<Product>() {
-                new Product("Death Stranding", 3990, "Какое-то описание"),
-                new Product("Days Gone", 2790, "Какое-то описание"),
-                new Product("Infamous", 1600 , "Какое-то описание")
+                new Product("Death Stranding", 3990, "Какое-то описание","/images/DeathStranding.jpeg"),
+                new Product("Days Gone", 2790, "Какое-то описание", "/images/DaysGone.jpg"),
+                new Product("Infamous Secong son", 1600 , "Какое-то описание", "/images/InfamousSecondSon.jpg"),
+                new Product("Red dead redemption 2", 3990 , "Какое-то описание", "/images/RDR2.jpeg"),
+                new Product("God of war", 2990 , "Какое-то описание", "/images/GOW.webp")
         };
         
         public Product GetProduct(int id)

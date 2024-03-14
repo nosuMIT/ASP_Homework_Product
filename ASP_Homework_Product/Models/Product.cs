@@ -1,4 +1,6 @@
-﻿namespace ASP_Homework_Product.Models
+﻿using System;
+
+namespace ASP_Homework_Product.Models
 {
     public class Product
     {
@@ -21,5 +23,7 @@
         {
             return $"{Id}\n{Name}\n{Cost}\n";
         }
+
+        
     }
 }

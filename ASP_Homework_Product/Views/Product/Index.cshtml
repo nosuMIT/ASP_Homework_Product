@@ -1,6 +1,6 @@
 ﻿@model Product
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Product Page";
 }
 
 <div class="text-center">
@@ -9,8 +9,9 @@
         <p>@Model.Name</p>
         <p>@Model.Cost</p>
         <p>@Model.Description</p>
-        <a href="/Home" class="btn btn-info">Продолжить покупки</a>
+        <a href="/home/index" class="btn btn-info">Продолжить покупки</a>
         <br>
-        <a href="#" class="btn btn-info mt-3">Добавить в корзину</a>
+        <a href="/Cart/Add?productId=@Model.Id" class="btn btn-info mt-3">Добавить в корзину</a>
+
     </div>
 </div>

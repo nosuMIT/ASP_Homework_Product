@@ -7,8 +7,8 @@ namespace ASP_Homework_Product.Controllers
     {
         public IActionResult Index(int id)
         {
-            CatalogProducts catalog = new CatalogProducts();
-            Product product = catalog.GetProduct(id);
+            //ProductRepository catalog = new ProductRepository();
+            Product product = ProductRepository.GetProduct(id);
             return View(product);
         }
     }

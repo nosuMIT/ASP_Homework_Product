@@ -1,0 +1,24 @@
+﻿@model Cart
+@{
+    ViewData["Title"] = "Cart Page";
+}
+
+<div class="text-center">
+    @if(Model == null)
+    {
+        <h2>Корзина пуста</h2>
+    }
+    else
+    {
+        @foreach(CartItem item in Model.CartItems)
+        {
+            <div class="row">
+                <div class="col-6">Игра: @item.Product.Name</div>
+                <div class="col-3">кол-во копий: @item.Amount шт.</div>
+                <div class="col-3">Цена: @item.Cost</div>
+            </div>
+        }
+    }
+
+    <h3>Итоговая сумма: @Model.Cost</h3>
+</div>

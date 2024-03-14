@@ -6,15 +6,15 @@ using System.Net;
 
 namespace ASP_Homework_Product
 {
-    public static class CartRepository
+    public class CartRepository
     {
-        private static List<Cart> Carts = new List<Cart>();
-        public static Cart TryGetByUId(string userId)
+        private List<Cart> Carts = new List<Cart>();
+        public Cart TryGetByUId(string userId)
         {
             return Carts.FirstOrDefault(x => x.UserId == userId);
         }
 
-        public static void Add(Product product, string userId)
+        public void Add(Product product, string userId)
         {
             var CartIsExist = TryGetByUId(userId);
             if(CartIsExist == null)

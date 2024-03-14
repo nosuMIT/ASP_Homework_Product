@@ -1,7 +1,7 @@
 ﻿namespace ASP_Homework_Product
 {
-    public static class Constants
+    public class Constants
     {
-        public static string UserId = "FirstUser";
+        public string UserId = "FirstUser";
     }
 }

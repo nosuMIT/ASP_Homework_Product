@@ -1,9 +1,20 @@
-﻿@{
+﻿@model List<Product>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Домашнее задание</h1>
-    <h2>Создание списка товаров для онлайн магазина</h2>
-    <p><a href="https://stepik.org/lesson/522438/step/2?unit=680171">Ссылка на задание</a></p>
+    <h1 class="display-4">Game shop</h1>
+    <h2>Каталог</h2>
+    <div class="row">
+        @foreach(var product in Model){
+            <div class="col-4 card bg-info">
+                <img width="300px" height="420px" src="@product.ImgLink"></img>
+                <a href="/Product/Index/@product.Id">@product.Name</a>
+                <p>@product.Cost руб.</p>
+                <a href="/Cart/Add?productId=@product.Id" class="btn btn-dark mt-3">Добавить в корзину</a> <!-- href подсмотрен в разборе, сам не догодался-->
+                
+            </div>
+        }
+    </div>
 </div>

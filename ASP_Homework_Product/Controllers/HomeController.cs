@@ -11,16 +11,22 @@ namespace ASP_Homework_Product.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        //private readonly ILogger<HomeController> _logger;
+        private readonly ProductRepository _productRepository;
+        public HomeController(ProductRepository productRepository)
         {
-            _logger = logger;
+            _productRepository = productRepository;
         }
+
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
 
         public IActionResult Index()
         {
-            return View();
+            var products = _productRepository.GetProducts();
+            return View(products);
         }
 
         public IActionResult Privacy()

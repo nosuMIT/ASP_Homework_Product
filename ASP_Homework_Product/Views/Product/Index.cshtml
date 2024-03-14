@@ -1,0 +1,17 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Product Page";
+}
+
+<div class="text-center">
+    <div>
+        <img src="@Model.ImgLink" class="w-25"></img>
+        <p>@Model.Name</p>
+        <p>@Model.Cost</p>
+        <p>@Model.Description</p>
+        <a href="/home/index" class="btn btn-info">Продолжить покупки</a>
+        <br>
+        <a href="/Cart/Add?productId=@Model.Id" class="btn btn-info mt-3">Добавить в корзину</a>
+
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Catalog";
+}
+
+@model ProductRepository;
+
+<div class="text-center">
+    <h1 class="display-4">Games catalog</h1>
+
+    <div class="product-cards">
+        @foreach (var product in Model.GetProducts())
+        {
+            <div class="product-card">
+                <img src=@product.ImagePath class="product-card__img" asp-for=@product.ImagePath alt ="@product.Name">
+                <input hidden asp-for=@product.ImagePath />
+                <div class="product-card__info">
+                    <h5 class="product-card__info-title">@product.Name</h5>
+                    <p class="product-card__info-description">@product.Description</p>
+                    <a href="/product/index?id=@product.Id" class="btn btn-primary product-card__info-btn">More</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

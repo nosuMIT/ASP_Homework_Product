@@ -1,0 +1,21 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="text-center product-details">
+    <h1 class="display-4">@Model.Name</h1>
+
+    <div class="product-card">
+        <img src=@Model.ImagePath class="product-card__img" alt="@Model.Name">
+        <div class="product-card__info">
+            <h5 class="product-card__info-title">@Model.Name</h5>
+            <p class="product-card__info-description">@Model.Description</p>
+            <div class="product-card__info-btns">
+                <a href="/catalog" class="btn btn-primary product-card__info-btn">Back to catalog</a>
+                <a href="#" class="btn btn-primary product-card__info-btn">@Model.Cost $</a>
+            </div>
+        </div>
+    </div>
+</div>

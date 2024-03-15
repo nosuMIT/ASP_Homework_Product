@@ -17,7 +17,7 @@ namespace ASP_Homework_Product
             new Product("Valheim", Convert.ToDecimal(5.39), "Cooperative survival game set in a procedurally-generated world inspired by Norse mythology, where players must gather resources, build shelters, craft equipment, and battle mythical creatures to prove their worth to the gods.", "/images/valheim.jpg"),
             new Product("Terraria", Convert.ToDecimal(2.89), "2D sandbox adventure game offering endless exploration, crafting, and combat in procedurally generated worlds, where players can build, mine, fight, and uncover hidden treasures alone or with friends", "/images/terraria.jpg"),
             new Product("God of War: Ragnarok", Convert.ToDecimal(67.99), "Epic action-adventure game that continues the journey of Kratos and Atreus, delving deeper into Norse mythology as they confront new gods and face the impending apocalypse, promising intense combat, emotional storytelling, and stunning visuals.", "/images/god-of-war-ragnarok.jpg"),
-            new Product("GTA VI", Convert.ToDecimal(0), "Upcoming open-world action-adventure game set in a sprawling, modern metropolis, offering players unprecedented freedom to explore, engage in criminal activities, and navigate a richly detailed narrative filled with satire and social commentary.", "/images/gta-6.jpg")
+            new Product("GTA VI", 0, "Upcoming open-world action-adventure game set in a sprawling, modern metropolis, offering players unprecedented freedom to explore, engage in criminal activities, and navigate a richly detailed narrative filled with satire and social commentary.", "/images/gta-6.jpg")
         };
 
         public List<Product> GetProducts()

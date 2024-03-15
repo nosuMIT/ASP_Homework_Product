@@ -1,7 +1,7 @@
 ﻿@model Product
 
 @{
-    ViewData["Title"] = Model.Name;
+    ViewData["Title"] = " - " + Model.Name;
 }
 
 <div class="text-center product-details">
@@ -13,8 +13,8 @@
             <h5 class="product-card__info-title">@Model.Name</h5>
             <p class="product-card__info-description">@Model.Description</p>
             <div class="product-card__info-btns">
-                <a href="/catalog" class="btn btn-primary product-card__info-btn">Back to catalog</a>
-                <a href="#" class="btn btn-primary product-card__info-btn">@Model.Cost $</a>
+                <a href="/catalog" class="btn btn-primary product-card__info-btn-back">To catalog</a>
+                <a asp-controller="Cart" asp-action="AddToCart" asp-route-productId=@Model.Id class="btn btn-primary product-card__info-btn-cart">@(Model.Cost == 0 ? "Pre-order" : $"{Model.Cost} $" )</a>
             </div>
         </div>
     </div>

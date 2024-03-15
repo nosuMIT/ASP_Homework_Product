@@ -1,10 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Catalog";
+    ViewData["Title"] = " - Catalog";
 }
 
 @model ProductRepository;
 
-<div class="text-center">
+<div class="text-center catalog">
     <h1 class="display-4">Games catalog</h1>
 
     <div class="product-cards">
@@ -16,7 +16,17 @@
                 <div class="product-card__info">
                     <h5 class="product-card__info-title">@product.Name</h5>
                     <p class="product-card__info-description">@product.Description</p>
-                    <a href="/product/index?id=@product.Id" class="btn btn-primary product-card__info-btn">More</a>
+                    <div class="product-card__info-btns">
+                        <a href="/product/index?id=@product.Id" class="btn btn-primary product-card__info-btn-more">More</a>
+                        @if(product.Cost == 0)
+                        {
+                            <a href="#" class="btn btn-primary product-card__info-btn-cart-unavailable">Pre-order soon</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Cart" asp-action="AddToCart" asp-route-productId=@product.Id class="btn btn-primary product-card__info-btn-cart">@product.Cost $</a>
+                        }
+                    </div>
                 </div>
             </div>
         }

@@ -4,7 +4,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace ASP_Homework_Product
 {
-    public class ProductRepository
+    public class InMemoryProductcRepository : IProductRepository
     {
         private static List<Product> products = new List<Product>() {
                 new Product("Death Stranding", 3990, "Какое-то описание","/images/DeathStranding.jpeg"),
@@ -26,5 +26,11 @@ namespace ASP_Homework_Product
         {
             return products;
         }
+    }
+
+    public interface IProductRepository
+    {
+        public Product GetProduct(int id);
+        public List<Product> GetProducts();
     }
 }

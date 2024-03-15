@@ -12,8 +12,8 @@ namespace ASP_Homework_Product.Controllers
     public class HomeController : Controller
     {
         //private readonly ILogger<HomeController> _logger;
-        private readonly ProductRepository _productRepository;
-        public HomeController(ProductRepository productRepository)
+        private readonly IProductRepository _productRepository;
+        public HomeController(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }

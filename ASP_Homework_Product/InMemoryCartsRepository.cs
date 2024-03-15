@@ -6,7 +6,7 @@ using System.Net;
 
 namespace ASP_Homework_Product
 {
-    public class CartRepository
+    public class InMemoryCartsRepository : ICartsRepository
     {
         private List<Cart> Carts = new List<Cart>();
         public Cart TryGetByUId(string userId)
@@ -50,6 +50,13 @@ namespace ASP_Homework_Product
                     CartItemIsExist.Amount++;
             }
         } 
+
+    }
+
+    public interface ICartsRepository
+    {
+        public Cart TryGetByUId(string userId);
+        public void Add(Product product, string userId);
 
     }
 }

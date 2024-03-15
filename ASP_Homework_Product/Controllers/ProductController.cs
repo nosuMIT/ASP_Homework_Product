@@ -5,8 +5,8 @@ namespace ASP_Homework_Product.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductRepository _productRepository;
-        public ProductController(ProductRepository productRepository)
+        private readonly IProductRepository _productRepository;
+        public ProductController(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }

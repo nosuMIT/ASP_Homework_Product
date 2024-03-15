@@ -5,10 +5,10 @@ namespace ASP_Homework_Product.Controllers
 {
     public class CartController : Controller
     {
-        private readonly ProductRepository _productRepository;
-        private readonly CartRepository _cartRepository;
-        private readonly Constants _constants;
-        public CartController(ProductRepository productRepository, CartRepository cartRepository, Constants constants)
+        private readonly IProductRepository _productRepository;
+        private readonly ICartsRepository _cartRepository;
+        private readonly IConstants _constants;
+        public CartController(IProductRepository productRepository, ICartsRepository cartRepository, IConstants constants)
         {
             _productRepository = productRepository;
             _cartRepository = cartRepository;
@@ -16,13 +16,13 @@ namespace ASP_Homework_Product.Controllers
         }
         public IActionResult Index()
         {
-            var cart = _cartRepository.TryGetByUId(_constants.UserId);
+            var cart = _cartRepository.TryGetByUId(_constants.GetUserId);
             return View(cart);
         }
         public IActionResult Add(int productId)
         {
             var product = _productRepository.GetProduct(productId);
-            _cartRepository.Add(product, _constants.UserId);
+            _cartRepository.Add(product, _constants.GetUserId);
             return RedirectToAction("Index");
         }
     }

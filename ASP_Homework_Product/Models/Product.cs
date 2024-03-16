@@ -17,18 +17,18 @@
             Id = unicId;
         }
 
-        public bool CompareId(int id)
+        /*public bool CompareId(int id)
         {
             return id == Id;
-            /*if (id == this.Id)
+            if (id == this.Id)
             {
                 return true;
             }
             else
             {
                 return false;
-            }*/
-        }
+            }
+        }*/
 
         public override string ToString()
         {

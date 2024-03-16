@@ -18,7 +18,7 @@ namespace ASP_Homework_Product.Controllers
             _logger = logger;
         }
 
-        List<Product> products = new List<Product>()
+        private static List<Product> products = new List<Product>()
         {
             new Product("Коленвал", 15000, "Коленчатый вал для Mercedes-Benz E500"),
             new Product("Поршни", 12000, "Облегченная поршневая система"),

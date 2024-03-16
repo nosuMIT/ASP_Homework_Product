@@ -20,6 +20,8 @@ namespace ASP_Homework_Product
             return Products;
         }
 
+        
+
         /*public bool CompareId(int id)
         {
             if (Products[currentIndex].Id == id)

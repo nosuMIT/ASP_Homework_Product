@@ -18,9 +18,53 @@ namespace ASP_Homework_Product.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        private static List<Product> products = new List<Product>()
         {
-            return View();
+            new Product("Коленвал", 15000, "Коленчатый вал для Mercedes-Benz E500"),
+            new Product("Поршни", 12000, "Облегченная поршневая система"),
+            new Product("Бензонасос", 9000, "Улчушенный бензонасос")
+        };
+        public string Index()
+        {
+            var result = "";
+            foreach (var item in products)
+            {
+                result += item + "\n\n";
+            }
+            return result;
+
+
+
+            /*ProductStorage product = new ProductStorage();
+            return string.Join("\n\n", product.ShowProducts());*/
+
+
+            //return product.ShowProducts();
+
+
+            //return $"{product.ShowProducts()}";
+
+
+            /*List<Product> products = new List<Product>()
+            {
+                new Product("Коленвал", 15000, "Коленчатый вал для Mercedes-Benz E500"),
+                new Product("Поршни", 12000, "Облегченная поршневая система"),
+                new Product("Бензонасос", 9000, "Улчушенный бензонасос")
+            };
+
+            ViewBag.Products = new List<Product>();
+
+            foreach (var item in products)
+            {
+                ViewBag.Products.Add(item);
+            }*/
+
+
+            /*Product product = new Product("Коленвал", 15000, "Коленчатый вал для Mercedes-Benz E500");
+            ViewBag.Product = product;
+            Product secondProduct = */
+
+            //return View();
         }
 
         public IActionResult Privacy()

@@ -20,7 +20,17 @@ namespace ASP_Homework_Product
             return Products;
         }
 
-        
+        public Product TryGetById(int id)
+        {
+            foreach (Product product in Products)
+            {
+                if (product.Id == id)
+                {
+                    return product;
+                }
+            }
+            return null;
+        }
 
         /*public bool CompareId(int id)
         {

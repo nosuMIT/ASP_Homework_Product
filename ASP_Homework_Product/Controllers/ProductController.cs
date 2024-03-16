@@ -15,7 +15,18 @@ namespace ASP_Homework_Product.Controllers
 
         public string Index(int id)
         {
-            string result ="";
+
+            Product result = productStorage.TryGetById(id);
+            if (result != null)
+            {
+                return result.ToString();
+            }
+            else
+            {
+                return $"Товара по такому id нет";
+            }
+
+            /*string result ="";
             List<Product> products = productStorage.GetProducts();
 
             foreach (Product product in products)
@@ -29,8 +40,8 @@ namespace ASP_Homework_Product.Controllers
             if (result == "")
             {
                 return $"Такого продукта по данному id нет!!!";
-            }
-            return result;
+            }*/
+            
         }
     }
 }

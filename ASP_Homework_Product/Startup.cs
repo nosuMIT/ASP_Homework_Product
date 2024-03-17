@@ -25,6 +25,7 @@ namespace ASP_Homework_Product
             services.AddSingleton<IProductRepository, InMemoryProductcRepository>();
             services.AddSingleton<ICartsRepository, InMemoryCartsRepository>();
             services.AddSingleton<IConstants, InMemoryConstants>();
+            services.AddSingleton<IOrderRepository, InMemoryOrdersRepository>();
             services.AddControllersWithViews();
         }
 

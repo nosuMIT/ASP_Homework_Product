@@ -5,23 +5,24 @@ namespace ASP_Homework_Product.Controllers
 {
     public class ProductController : Controller
     {
+        private readonly ProductStorage productStorage;
 
-        //доделать вывод конкретного продукта 
-
-
-
-
-        /*ProductStorage product = Product.;*/
-
-        /*public string Index(int id)
+        public ProductController()
         {
-            foreach (Product item in product)
+            productStorage = new ProductStorage();
+        }
+
+        public IActionResult Index(int id)
+        {
+            var products = productStorage.GetProducts();
+            foreach (var product in products)
             {
-                if (item.CompareId(id))
+                if (product.Id == id)
                 {
-                    return View((object)item);
+                    return View(product);
                 }
             }
-        }*/
+            return View(products);
+        }
     }
 }

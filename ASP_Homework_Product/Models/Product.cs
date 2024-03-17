@@ -19,12 +19,6 @@
             ImageURL = imageUrl;
         }
 
-        public bool CompareId(int id)
-        {
-            return id == Id;
-            
-        }
-
         public override string ToString()
         {
             return $"Id: {Id}. Name = {Name}, Cost = {Cost}, Description = {Description}";

@@ -49,7 +49,21 @@ namespace ASP_Homework_Product
                 else
                     CartItemIsExist.Amount++;
             }
-        } 
+        }
+
+        public void Delete(Product product, string userId)
+        {
+            var Cart = TryGetByUId(userId);
+            CartItem CartItem = Cart.CartItems.FirstOrDefault(pr => pr.Product.Id == product.Id);
+            if(CartItem.Amount > 1) CartItem.Amount--;
+            else Cart.CartItems.Remove(CartItem);
+        }
+
+        public void Clear(string userId)
+        {
+            var Cart = TryGetByUId(userId);
+            Carts.Remove(Cart);
+        }
 
     }
 
@@ -57,6 +71,8 @@ namespace ASP_Homework_Product
     {
         public Cart TryGetByUId(string userId);
         public void Add(Product product, string userId);
+        public void Delete(Product product, string userId);
+        public void Clear(string userId);
 
     }
 }

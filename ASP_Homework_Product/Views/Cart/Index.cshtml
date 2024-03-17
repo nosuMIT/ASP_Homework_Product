@@ -10,15 +10,27 @@
     }
     else
     {
+        <div class="row">
+            <div class="col-2 text-center align-middle">Игра</div>
+            <div class="col-2">Цена, руб</div>
+            <div class="col-2">Кол-во копий</div>
+            <div class="col-2">Стоимость, руб</div>
+            <div class="col-2">Увеличить кол-во копий</div>
+            <div class="col-2">Уменьшить кол-во копий</div>
+        
         @foreach(CartItem item in Model.CartItems)
         {
-            <div class="row">
-                <div class="col-6">Игра: @item.Product.Name</div>
-                <div class="col-3">кол-во копий: @item.Amount шт.</div>
-                <div class="col-3">Цена: @item.Cost руб.</div>
-            </div>
+           
+            <div class="col-2">@item.Product.Name</div>
+            <div class="col-2">@item.Product.Cost</div>
+            <div class="col-2">@item.Amount</div>
+            <div class="col-2">Цена: @item.Cost</div>
+            <a href="/Cart/Add?productId=@item.Product.Id" class="col-2 btn btn-info mt-3">+</a>
+            <a href="/Cart/Delete?productId=@item.Product.Id" class="col-2 btn btn-info mt-3">-</a>
         }
+        </div>
+        <h3>Итоговая сумма: @Model.Cost руб.</h3>
+        <a href="/Cart/Clear" class="col-2 btn btn-info mt-3">Очистить корзину</a>
     }
 
-    <h3>Итоговая сумма: @Model.Cost руб.</h3>
 </div>

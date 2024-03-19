@@ -4,8 +4,8 @@ using WebApplicationLesson1.Models;
 
 namespace WebApplicationLesson1
 {
-	public class ProductRepository
-	{
+    public class ProductRepository
+    {
         private static List<Product> products = new List<Product>()
         {
             new Product("Last of us", 1000,"Sony's exclusive"),
@@ -16,9 +16,22 @@ namespace WebApplicationLesson1
         {
             return products;
         }
+
+        public Product TryGetById(int id)
+        {
+            foreach (var prod in products)
+            {
+                if (prod.Id == id)
+                {
+                    return prod;
+                }
+            }
+            return null;
+        }
+
         public ProductRepository()
-		{
-		}
-	}
+        {
+        }
+    }
 }
 

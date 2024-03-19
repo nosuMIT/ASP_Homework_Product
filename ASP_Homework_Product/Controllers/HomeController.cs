@@ -6,21 +6,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ASP_Homework_Product.Models;
+using WebApplicationLesson1;
 
 namespace ASP_Homework_Product.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ProductRepository productRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController()
         {
-            _logger = logger;
+            productRepository = new ProductRepository();
         }
 
-        public IActionResult Index()
+        public string Index()
         {
-            return View();
+            var products = productRepository.GetAllProducts();
+            string result = "";
+            foreach (var product in products)
+            {
+                result += product + "\n\n";
+            }
+
+            return result;
+
         }
 
         public IActionResult Privacy()

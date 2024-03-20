@@ -14,6 +14,7 @@ namespace WebApplicationLesson1.Models
         {
             Id = instanceCounter;
             Name = name;
+            Cost = cost;
             Description = description;
 
             instanceCounter++;

@@ -20,12 +20,14 @@ namespace ASP_Homework_Product.Controllers
         {
             return View();
         }
-        public IActionResult Buy()
+        [HttpPost]
+        public IActionResult Buy(Order order)
         {
             Cart cart = _cartRepository.TryGetByUId(_constants.GetUserId);
-            _orderRepository.Add(cart);
+            order.AddCart(cart);
+            _orderRepository.Add(order);
             _cartRepository.Clear(_constants.GetUserId);
-            return View();
+            return View(order);
         }
     }
 }

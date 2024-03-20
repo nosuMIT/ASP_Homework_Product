@@ -5,9 +5,9 @@ namespace ASP_Homework_Product
 {
     public class InMemoryOrdersRepository : IOrderRepository
     {
-        private List<Cart> Orders = new List<Cart>();
-        public List<Cart> GetOrders() { return Orders; }
-        public void Add(Cart order)
+        private List<Order> Orders = new List<Order>();
+        public List<Order> GetOrders() { return Orders; }
+        public void Add(Order order)
         {
             Orders.Add(order);
         }
@@ -15,7 +15,7 @@ namespace ASP_Homework_Product
 
     public interface IOrderRepository
     {
-        public List<Cart> GetOrders();
-        public void Add(Cart order);
+        public List<Order> GetOrders();
+        public void Add(Order order);
     }
 }

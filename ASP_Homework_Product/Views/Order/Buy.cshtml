@@ -1,0 +1,15 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Order Page";
+}
+
+<div class="text-center">
+    @if(Model.Name != null)
+    {
+        <h1>Благодарим за покупку, уважаемый @Model.Name !</h1>
+    }
+    else
+    {
+        <h1>Благодарим за покупку!</h1>
+    }
+</div>

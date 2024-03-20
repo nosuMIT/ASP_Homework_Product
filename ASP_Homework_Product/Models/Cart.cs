@@ -13,6 +13,10 @@ namespace ASP_Homework_Product.Models
         {
             get { return CartItems.Sum(c => c.Cost); }
         }
+        public int Amount
+        {
+            get { return CartItems?.Sum(c => c.Amount) ?? 0; }
+        }
     }
 
 }

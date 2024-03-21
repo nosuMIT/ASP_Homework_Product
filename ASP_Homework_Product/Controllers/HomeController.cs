@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ASP_Homework_Product.Models;
-using WebApplicationLesson1;
 
 namespace ASP_Homework_Product.Controllers
 {
@@ -19,16 +18,16 @@ namespace ASP_Homework_Product.Controllers
             productRepository = new ProductRepository();
         }
 
-        public string Index()
+        public IActionResult Index()
         {
             var products = productRepository.GetAllProducts();
-            string result = "";
+            /*string result = "";
             foreach (var product in products)
             {
                 result += product + "\n\n";
             }
-
-            return result;
+            */
+            return View(products);
 
         }
 

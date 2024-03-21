@@ -1,5 +1,5 @@
 ﻿using System;
-namespace WebApplicationLesson1.Models
+namespace ASP_Homework_Product.Models
 {
     public class Product
     {
@@ -14,6 +14,7 @@ namespace WebApplicationLesson1.Models
         {
             Id = instanceCounter;
             Name = name;
+            Cost = cost;
             Description = description;
 
             instanceCounter++;

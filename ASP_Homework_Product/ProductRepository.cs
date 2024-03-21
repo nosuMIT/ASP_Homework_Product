@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using WebApplicationLesson1.Models;
+using ASP_Homework_Product.Models;
 
-namespace WebApplicationLesson1
+namespace ASP_Homework_Product
 {
     public class ProductRepository
     {
-        private static List<Product> products = new List<Product>()
+        public static List<Product> products = new List<Product>()
         {
             new Product("Last of us", 1000,"Sony's exclusive"),
             new Product("Red Dead Redemption 2", 2000, "Rockstar games"),
-            new Product("Detroit",500,"Quantic Dream")
+            new Product("Detroit",500,"Quantic Dream"),
+            new Product("Horizon FW",5000,"Sony")
         };
+
         public List<Product> GetAllProducts()
         {
             return products;

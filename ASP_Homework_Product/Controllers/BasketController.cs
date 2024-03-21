@@ -3,18 +3,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_Homework_Product.Controllers
 {
-    public class ProductController : Controller
+    public class BasketController : Controller
     {
         private readonly ProductStorage productStorage;
 
-        public ProductController()
+        public BasketController()
         {
             productStorage = new ProductStorage();
         }
 
-        public IActionResult Index(int id)
+        public IActionResult Index()
         {
-            
+            BasketStorage.TryGetByUserId(Constants.UserId);
+            return View();
+        }
+        public IActionResult Add(int id)
+        {
             var product = productStorage.TryGetById(id);
             return View(product);
         }

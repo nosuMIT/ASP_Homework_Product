@@ -6,6 +6,11 @@
 <div class="text-center">
     <h1 class="display-4">Game shop</h1>
     <h2>Каталог</h2>
+    <form method="post">
+        <label>Поиск по названию</label>
+        <input type="search" class="mb-2" size="50" name="searchInfo"></input>
+        <button type="submit" asp-controller="Home" asp-action="SearchIndex">Найти</button>
+    </form>
     <div class="row">
         @foreach(var product in Model){
             <div class="col-4 card bg-info">

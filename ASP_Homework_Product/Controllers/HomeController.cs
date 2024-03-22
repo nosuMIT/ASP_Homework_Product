@@ -39,5 +39,16 @@ namespace ASP_Homework_Product.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-    }
+
+        [HttpPost]
+		public IActionResult SearchIndex(string searchInfo)
+		{
+            if(searchInfo != null)
+            {
+                var products = _productRepository?.SearchProduct(searchInfo);
+                return View(products);
+            }
+            return RedirectToAction("Index");
+		}
+	}
 }

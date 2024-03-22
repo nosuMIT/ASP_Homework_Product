@@ -50,6 +50,11 @@ namespace ASP_Homework_Product
         {
             products.Add(newProduct);
         }
+
+        public List<Product> SearchProduct(string searchInfo)
+        {
+            return products.Where(pr => pr.Name.ToLower().Contains(searchInfo.ToLower())).ToList();
+        }
     }
 
     public interface IProductRepository
@@ -59,6 +64,7 @@ namespace ASP_Homework_Product
         public void ChangeProduct(int id, string newName, decimal newCost);
         public void Delete(int id);
         public void Add(Product newProduct);
+        public List<Product> SearchProduct(string searchInfo);
 
 	}
 }

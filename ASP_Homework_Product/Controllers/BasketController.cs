@@ -14,13 +14,14 @@ namespace ASP_Homework_Product.Controllers
 
         public IActionResult Index()
         {
-            BasketStorage.TryGetByUserId(Constants.UserId);
-            return View();
+            var basket = BasketStorage.TryGetByUserId(Constants.UserId);
+            return View(basket);
         }
-        public IActionResult Add(int id)
+        public IActionResult Add(int productId)
         {
-            var product = productStorage.TryGetById(id);
-            return View(product);
+            var product = productStorage.TryGetById(productId);
+            BasketStorage.Add(product, Constants.UserId);
+            return RedirectToAction("Index");
         }
     }
 }

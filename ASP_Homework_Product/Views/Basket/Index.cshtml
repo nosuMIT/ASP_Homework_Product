@@ -6,6 +6,33 @@
 }
 else
 {
-	<h2>Корзина не пустая</h2>
+	<div class = "row">
+		<div class = "col">
+			<table>
+				<thead>
+
+					<tr>
+						<th>Название</th>
+						<th>Цена</th>
+						<th>Количество</th>
+						<th>Стоимость</th>
+					</tr>
+					
+				</thead>
+
+				<tbody>
+					@foreach (var item in Model.Items)
+					{
+						<tr>
+							<td>@item.Product.Name</td>
+							<td>@item.Product.Cost</td>
+							<td>@item.Amount</td>
+							<td>@item.Cost</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
 	
 }

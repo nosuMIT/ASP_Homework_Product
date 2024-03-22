@@ -15,7 +15,7 @@ namespace ASP_Homework_Product.Controllers
         public IActionResult Index(int id)
         {
             
-            var product = productStorage.TryGetById(id);
+            Product product = productStorage.TryGetById(id);
             return View(product);
         }
     }

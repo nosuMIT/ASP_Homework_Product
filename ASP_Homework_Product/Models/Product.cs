@@ -6,8 +6,8 @@ namespace ASP_Homework_Product.Models
     {
         private static int unicId;
         public int Id { get; }
-        public string Name { get; }
-        public decimal Cost { get; }
+        public string Name { get; set; }
+        public decimal Cost { get; set; }
         public string Description { get; }
         public string ImgLink;
         public Product(string name, decimal cost, string description, string imgLink)
@@ -24,6 +24,5 @@ namespace ASP_Homework_Product.Models
             return $"{Id}\n{Name}\n{Cost}\n";
         }
 
-        
     }
 }

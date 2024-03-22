@@ -4,6 +4,11 @@ namespace ASP_Homework_Product.Controllers
 {
     public class AdminController : Controller
     {
+        private readonly IProductRepository _productRepository;
+        public AdminController(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
         public IActionResult Index()
         {
             return View();
@@ -22,7 +27,8 @@ namespace ASP_Homework_Product.Controllers
         }
         public IActionResult Products()
         {
-            return View();
+            var products = _productRepository.GetProducts(); 
+            return View(products);
         }
     }
 }

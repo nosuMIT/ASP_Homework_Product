@@ -16,5 +16,37 @@ namespace ASP_Homework_Product.Controllers
             Product product = _productRepository.GetProduct(id);
             return View(product);
         }
-    }
+		public IActionResult Edit(int id)
+		{
+			Product product = _productRepository.GetProduct(id);
+			return View(product);
+		}
+
+		public IActionResult Add()
+		{
+			return View();
+		}
+
+		public IActionResult Delete(int id)
+		{
+			_productRepository.Delete(id);
+			return RedirectToAction("Products", "Admin");
+		}
+
+
+		[HttpPost]
+		public IActionResult ChangeProductInfo(int id, string newName, decimal newCost)
+		{
+			_productRepository.ChangeProduct(id, newName, newCost);
+			return RedirectToAction("Products","Admin");
+		}
+
+		[HttpPost]
+		public IActionResult NewProduct(string newName, decimal newCost, string newDescription)
+		{
+			Product newProduct = new Product(newName, newCost, newDescription, "#");
+			_productRepository.Add(newProduct);
+			return RedirectToAction("Products", "Admin");
+		}
+	}
 }

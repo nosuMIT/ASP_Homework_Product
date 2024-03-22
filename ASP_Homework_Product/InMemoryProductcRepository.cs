@@ -1,5 +1,6 @@
 ﻿using ASP_Homework_Product.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 
 namespace ASP_Homework_Product
@@ -26,11 +27,38 @@ namespace ASP_Homework_Product
         {
             return products;
         }
+
+        public void ChangeProduct(int id, string newName, decimal newCost)
+        {
+			foreach (Product p in products)
+			{
+				if (p.Id == id)
+                {
+                    p.Name = newName;
+                    p.Cost = newCost;
+                }
+			}
+		}
+
+        public void Delete(int id)
+        {
+            Product product = GetProduct(id);
+            products.Remove(product);
+        }
+
+        public void Add(Product newProduct)
+        {
+            products.Add(newProduct);
+        }
     }
 
     public interface IProductRepository
     {
         public Product GetProduct(int id);
         public List<Product> GetProducts();
-    }
+        public void ChangeProduct(int id, string newName, decimal newCost);
+        public void Delete(int id);
+        public void Add(Product newProduct);
+
+	}
 }

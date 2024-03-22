@@ -1,4 +1,27 @@
-﻿<div class="row">
+﻿@model List<Product>
+<div class="row">
 	@await Html.PartialAsync("Index")
-	<div class="col-9 text-center">Продукты</div>
+	<div class="col-9 text-center">
+			
+		<h2>Список Продуктов</h2>
+		<a href="/Product/Add">Добавить новый продукт</a>
+		<table width="500">
+			<tr>
+				<th>№</th>
+				<th>Название</th>
+				<th>Цена</th>
+			</tr>
+				@foreach(var product in Model)
+				{
+					<tr>
+						<td>@product.Id</td>
+						<td><a href="/Product/Index/@product.Id">@product.Name</a></td>
+						<td>@product.Cost</td>
+						<td><a href="/Product/Edit/@product.Id">Редактировать</a></td>
+						<td><a href="/Product/Delete?id=@product.Id">Удалить</a></td>
+					</tr>
+				}
+		</table>
+		
+	</div>
 </div>

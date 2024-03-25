@@ -28,6 +28,7 @@ namespace ASP_Homework_Product.Controllers
         public IActionResult Products()
         {
             var products = _productRepository.GetProducts(); 
+
             return View(products);
         }
     }

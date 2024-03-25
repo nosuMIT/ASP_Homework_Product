@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASP_Homework_Product.Models
 {
@@ -6,9 +7,12 @@ namespace ASP_Homework_Product.Models
     {
         private static int unicId;
         public int Id { get; }
+        [Required(ErrorMessage ="Введите название")]
         public string Name { get; set; }
-        public decimal Cost { get; set; }
-        public string Description { get; }
+		[Required(ErrorMessage = "Введите цену")]
+		public decimal Cost { get; set; }
+		[Required(ErrorMessage = "Введите описание")]
+		public string Description { get; set; }
         public string ImgLink;
         public Product(string name, decimal cost, string description, string imgLink)
         {
@@ -17,6 +21,10 @@ namespace ASP_Homework_Product.Models
             Description = description;
             Id = unicId++;
             ImgLink = imgLink;
+        }
+        public Product()
+        {
+
         }
 
         public override string ToString()

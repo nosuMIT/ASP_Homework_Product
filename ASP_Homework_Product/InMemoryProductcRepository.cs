@@ -28,7 +28,7 @@ namespace ASP_Homework_Product
             return products;
         }
 
-        public void ChangeProduct(int id, string newName, decimal newCost)
+		public void ChangeProduct(int id, string newName, decimal newCost, string newDescription)
         {
 			foreach (Product p in products)
 			{
@@ -36,6 +36,7 @@ namespace ASP_Homework_Product
                 {
                     p.Name = newName;
                     p.Cost = newCost;
+                    p.Description = newDescription;
                 }
 			}
 		}
@@ -61,7 +62,7 @@ namespace ASP_Homework_Product
     {
         public Product GetProduct(int id);
         public List<Product> GetProducts();
-        public void ChangeProduct(int id, string newName, decimal newCost);
+        public void ChangeProduct(int id, string newName, decimal newCost, string newDescription);
         public void Delete(int id);
         public void Add(Product newProduct);
         public List<Product> SearchProduct(string searchInfo);

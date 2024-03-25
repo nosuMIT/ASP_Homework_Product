@@ -35,18 +35,28 @@ namespace ASP_Homework_Product.Controllers
 
 
 		[HttpPost]
-		public IActionResult ChangeProductInfo(int id, string newName, decimal newCost)
+		public IActionResult ChangeProductInfo(int id, Product product)
 		{
-			_productRepository.ChangeProduct(id, newName, newCost);
-			return RedirectToAction("Products","Admin");
+			if (ModelState.IsValid)
+			{
+				_productRepository.ChangeProduct(id, product.Name, product.Cost, product.Description);
+				return RedirectToAction("Products", "Admin");
+			}
+			return RedirectToAction("Edit");
 		}
 
 		[HttpPost]
-		public IActionResult NewProduct(string newName, decimal newCost, string newDescription)
+		public IActionResult NewProduct(Product product)
 		{
-			Product newProduct = new Product(newName, newCost, newDescription, "#");
-			_productRepository.Add(newProduct);
-			return RedirectToAction("Products", "Admin");
+			if(ModelState.IsValid)
+			{
+				Product newProduct = new Product(product.Name, product.Cost, product.Description, "#"); //этот продукст создается чтобы инициализировать unicId.
+																										//Если передать product,
+																										//то при переходе на стр товара выводится первый товар
+				_productRepository.Add(newProduct);
+				return RedirectToAction("Products", "Admin");
+			}
+			return RedirectToAction("Add");
 		}
 	}
 }

@@ -23,11 +23,15 @@ namespace ASP_Homework_Product.Controllers
         [HttpPost]
         public IActionResult Buy(Order order)
         {
-            Cart cart = _cartRepository.TryGetByUId(_constants.GetUserId);
-            order.Cart = cart;
-            _orderRepository.Add(order);
-            _cartRepository.Clear(_constants.GetUserId);
-            return View(order);
+            if(ModelState.IsValid)
+            {
+				Cart cart = _cartRepository.TryGetByUId(_constants.GetUserId);
+				order.Cart = cart;
+				_orderRepository.Add(order);
+				_cartRepository.Clear(_constants.GetUserId);
+				return View(order);
+			}
+            return RedirectToAction("Index");
         }
     }
 }

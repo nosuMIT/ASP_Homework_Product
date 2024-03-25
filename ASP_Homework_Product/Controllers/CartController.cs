@@ -7,12 +7,11 @@ namespace ASP_Homework_Product.Controllers
     public class CartController : Controller
     {
 
-        ProductRepository products;
+        ProductRepository products = new ProductRepository();
         static Cart cart;
 
         public CartController()
         {
-            products = new ProductRepository();
             if (cart == null)
             {
                 cart = new Cart();

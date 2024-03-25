@@ -1,0 +1,10 @@
+﻿@model Product
+<div class="text-center">
+	<form method="post">
+		<label>Введите новое название</label>
+		<input type="text" name="newName"></input>
+		<label>Введите новую стоимость</label>
+		<input type="text" name="newCost"></input>
+		<button type="submit" asp-controller="Product" asp-action="ChangeProductInfo" asp-route-id="@Model.Id">Изменить</button>
+	</form>
+</div>

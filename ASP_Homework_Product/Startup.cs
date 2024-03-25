@@ -23,6 +23,9 @@ namespace ASP_Homework_Product
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<CartsRepository>();
+            services.AddSingleton<Constants>();
+            services.AddSingleton<ProductsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

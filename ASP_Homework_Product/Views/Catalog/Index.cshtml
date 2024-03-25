@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = " - Catalog";
+}
+
+@model ProductsRepository;
+
+<div class="text-center catalog">
+    <h1 class="display-4">Games catalog</h1>
+
+    <div class="product-cards">
+        @foreach (var product in Model.GetProducts())
+        {
+            <div class="product-card">
+                <img src=@product.ImagePath class="product-card__img" asp-for=@product.ImagePath alt ="@product.Name">
+                <input hidden asp-for=@product.ImagePath />
+                <div class="product-card__info">
+                    <h5 class="product-card__info-title">@product.Name</h5>
+                    <p class="product-card__info-description">@product.Description</p>
+                    <div class="product-card__info-btns">
+                        <a asp-controller="Product" asp-action="Index" asp-route-id="@product.Id" class="btn product-card__info-btn-more">More</a>
+                        @if(product.Cost == 0)
+                        {
+                            <a href="#" class="btn product-card__info-btn-cart-unavailable">Pre-order soon</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Cart" asp-action="Add" asp-route-productId="@product.Id" class="btn product-card__info-btn-cart">@product.Cost $</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

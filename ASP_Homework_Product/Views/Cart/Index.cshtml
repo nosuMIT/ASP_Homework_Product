@@ -1,0 +1,40 @@
+﻿@model Cart;
+
+@{
+    ViewData["Title"] = " - My cart";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cart</h1>
+
+    @if (Model != null && Model.ProductsInCart.Count > 0)
+    {
+        <div class="cart">
+            @foreach (var product in Model.ProductsInCart.Distinct().ToList())
+            {
+                <div class="cart-item">
+                    <img src=@product.ImagePath class="cart-item__img" asp-for=@product.ImagePath alt="@product.Name">
+                    <input hidden asp-for=@product.ImagePath />
+                    <div class="cart-item__info">
+                        <h5 class="cart-item__info-title"><a asp-controller="Product" asp-action="Index" asp-route-id="@product.Id">@product.Name</a></h5>
+                        <p class="cart-item__info-description">@product.Description</p>
+                        <div class="cart-item__info-details">
+                            <p class="cart-item__info-details-price">@Model.ProductsInCart.Where(prod => prod.Id == product.Id).Select(prod => prod.Cost).Sum() $</p>
+                            <a asp-controller="Cart" asp-action="Add" asp-route-productId="@product.Id" class="btn cart-item__info-details-btn-plus_one">+</a>
+                            <a asp-controller="Cart" asp-action="Remove" asp-route-productId="@product.Id" class="btn cart-item__info-details-btn-minus_one">-</a>
+                            <a asp-controller="Cart" asp-action="RemoveAll" asp-route-productId="@product.Id" class="btn cart-item__info-details-btn-delete"><img class="cart-item__info-details-btn-delete-img" src="~/images/delete.png" /></a>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="cart__bottom">
+                <a href="/catalog" class="btn item-cart__btn-back">To catalog</a>
+                <p class="cart-item__total">Total: @Model.TotalCost $</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <h2>Your cart is empty</h2>
+    }
+</div>

@@ -11,10 +11,11 @@ namespace ASP_Homework_Product.Controllers
         }
 
         [HttpPost]
-        public IActionResult Enter(User user)
+        public IActionResult Enter(RegistryUser user)
         {
-
-            return View();
+            if(ModelState.IsValid) return View(user);
+            if (user.Login == user.Password) ModelState.AddModelError("", "Логин и пароль не должны совподать");
+            return RedirectToAction("Index");
         }
     }
 }

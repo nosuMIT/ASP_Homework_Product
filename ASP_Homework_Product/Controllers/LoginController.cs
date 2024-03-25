@@ -11,10 +11,10 @@ namespace ASP_Homework_Product.Controllers
         }
 
         [HttpPost]
-        public IActionResult Enter(User user)
+        public IActionResult Enter(LoginUser user)
         {
-            //логику реализовывать пока не нужно
-            return View();
+            if(ModelState.IsValid) return View();
+			return RedirectToAction("Index");
         }
     }
 }

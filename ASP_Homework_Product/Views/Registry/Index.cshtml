@@ -1,0 +1,29 @@
+﻿@model RegistryUser
+<form method="post" asp-controller="registry" asp-action="enter">
+    <div class="text-center">
+        <h2>Регистрация</h2>
+        <div class="text-danger font-weight-bold" asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="Login">Логин</label>
+            <input asp-for="Login">
+            <span asp-validation-for="Login"></span>
+        </div>
+  
+        <br>
+        <div>
+            <label asp-for="Password">Пароль</label>
+            <input asp-for="Password" type="password">
+            <span asp-validation-for="Password"></span>
+        </div>
+        <br>
+        <div>
+            <label asp-for="RepeatPassword">Повторите пароль</label>
+            <input asp-for="RepeatPassword" type="password">
+            <span asp-validation-for="RepeatPassword"></span>
+        </div>
+        
+        <br>
+        <button class="btn btn-info mt-3" type="submit">Зарегистрироваться</button>
+        <br>
+    </div>
+</form>

@@ -6,7 +6,7 @@ using ASP_Homework_Product.Models;
 
 namespace ASP_Homework_Product
 {
-    public class ProductRepository
+    public class ProductsRepository
     {
         static List<Product> Products = new List<Product>
         {

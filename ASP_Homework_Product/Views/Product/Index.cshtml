@@ -16,11 +16,11 @@
                 <a href="/catalog" class="btn btn-primary product-details__info-btn-back">To catalog</a>
                 @if(Model.Cost == 0)
                 {
-                    <a href="#" class="btn btn-primary product-details__info-btn-unavailable">Soon</a>
+                    <a href="#" class="btn product-details__info-btn-unavailable">Soon</a>
                 }
                 else
                 {
-                    <a asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@Model.Id" class="btn btn-primary product-details__info-btn-cart">BUY</a>
+                    <a asp-controller="Cart" asp-action="Add" asp-route-productId="@Model.Id" class="btn product-details__info-btn-cart">BUY</a>
                 }
             </div>
         </div>

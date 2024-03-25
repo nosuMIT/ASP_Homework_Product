@@ -6,6 +6,7 @@ namespace ASP_Homework_Product.Models
     public class Cart
     {
         public List<Product> ProductsInCart { get; set; }
+        public string UserId { get; set; }
         public decimal TotalCost 
         { 
             get 

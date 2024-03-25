@@ -7,40 +7,37 @@ namespace ASP_Homework_Product.Controllers
     public class CartController : Controller
     {
 
-        ProductRepository products = new ProductRepository();
-        static Cart cart;
+        ProductsRepository products;
 
         public CartController()
         {
-            if (cart == null)
-            {
-                cart = new Cart();
-            }
+            products = new ProductsRepository();
         }
 
         public IActionResult Index()
         {
+            Cart cart = CartsRepository.TryGetCartByUserId(Constants.UserId);
             return View(cart);
         }
 
-        public IActionResult AddToCart(int productId)
+        public IActionResult Add(int productId)
         {
             var product = products.TryGetById(productId);
-            if(!cart.ProductsInCart.Contains(product))
-            {
-                cart.ProductsInCart.Add(product);
-            }
-            return RedirectToAction("Index", "Cart");
+            CartsRepository.AddToCart(product, Constants.UserId);
+            return RedirectToAction("Index");
         }
 
-        public IActionResult RemoveFromCart(int productId)
+        public IActionResult Remove(int productId)
         {
             var product = products.TryGetById(productId);
-            if (cart.ProductsInCart.Contains(product))
-            {
-                cart.ProductsInCart.Remove(product);
-            }
-            return RedirectToAction("Index", "Cart");
+            CartsRepository.RemoveFromCart(product, Constants.UserId);
+            return RedirectToAction("Index");
+        }
+        public IActionResult RemoveAll(int productId)
+        {
+            var product = products.TryGetById(productId);
+            CartsRepository.RemoveIdenticalFromCart(product, Constants.UserId);
+            return RedirectToAction("Index");
         }
     }
 }

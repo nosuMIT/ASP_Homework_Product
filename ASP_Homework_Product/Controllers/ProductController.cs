@@ -11,7 +11,7 @@ namespace ASP_Homework_Product.Controllers
     {
         public IActionResult Index(int id)
         {
-            ProductRepository productRepository = new ProductRepository();
+            ProductsRepository productRepository = new ProductsRepository();
             Product requestedProduct = productRepository.TryGetById(id);
             return View(requestedProduct);
         }

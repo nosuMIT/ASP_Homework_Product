@@ -6,7 +6,7 @@ namespace ASP_Homework_Product.Controllers
     {
         public IActionResult Index()
         {
-            ProductRepository products = new ProductRepository();
+            ProductsRepository products = new ProductsRepository();
             return View(products);
         }
     }

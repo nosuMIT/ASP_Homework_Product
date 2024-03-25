@@ -20,7 +20,7 @@
                         <p class="cart-item__info-description">@product.Description</p>
                         <div class="cart-item__info-details">
                             <p class="cart-item__info-details-price">@product.Cost $</p>
-                            <a href="/cart/removefromcart?productId=@product.Id" class="btn btn-primary cart-item__info-details-btn-delete"><img class="cart-item__info-details-btn-delete-img" src="~/images/delete.png" /></a>
+                            <a asp-controller="Cart" asp-action="RemoveFromCart" asp-route-productId="@product.Id" class="btn btn-primary cart-item__info-details-btn-delete"><img class="cart-item__info-details-btn-delete-img" src="~/images/delete.png" /></a>
                         </div>
                     </div>
                 </div>

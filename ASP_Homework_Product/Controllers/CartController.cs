@@ -7,36 +7,40 @@ namespace ASP_Homework_Product.Controllers
     public class CartController : Controller
     {
 
-        ProductsRepository products;
+        private readonly Constants constants;
+        private readonly CartsRepository cartsRepository;
+        private readonly ProductsRepository productsRepository;
 
-        public CartController()
+        public CartController(Constants constants, CartsRepository cartsRepository,ProductsRepository productsRepository)
         {
-            products = new ProductsRepository();
+            this.constants = constants;
+            this.cartsRepository = cartsRepository;
+            this.productsRepository = productsRepository;
         }
 
         public IActionResult Index()
         {
-            Cart cart = CartsRepository.TryGetCartByUserId(Constants.UserId);
+            var cart = cartsRepository.TryGetCartByUserId(constants.UserId);
             return View(cart);
         }
 
         public IActionResult Add(int productId)
         {
-            var product = products.TryGetById(productId);
-            CartsRepository.AddToCart(product, Constants.UserId);
+            var product = productsRepository.TryGetById(productId);
+            cartsRepository.AddToCart(product, constants.UserId);
             return RedirectToAction("Index");
         }
 
         public IActionResult Remove(int productId)
         {
-            var product = products.TryGetById(productId);
-            CartsRepository.RemoveFromCart(product, Constants.UserId);
+            var product = productsRepository.TryGetById(productId);
+            cartsRepository.RemoveFromCart(product, constants.UserId);
             return RedirectToAction("Index");
         }
         public IActionResult RemoveAll(int productId)
         {
-            var product = products.TryGetById(productId);
-            CartsRepository.RemoveIdenticalFromCart(product, Constants.UserId);
+            var product = productsRepository.TryGetById(productId);
+            cartsRepository.RemoveIdenticalFromCart(product, constants.UserId);
             return RedirectToAction("Index");
         }
     }

@@ -8,7 +8,7 @@ namespace ASP_Homework_Product
 {
     public class ProductsRepository
     {
-        static List<Product> Products = new List<Product>
+        List<Product> Products = new List<Product>
         {
             new Product("Elden ring", Convert.ToDecimal(49.89), "Epic adventure set in a world of dark fantasy and mysteries, where players explore a vast open world, battle colossal enemies, and uncover the secrets of ancient history, created in collaboration between Hidetaka Miyazaki and George R. R. Martin.", "/images/elden-ring.jpg"),
             new Product("Minecraft", Convert.ToDecimal(29.99), "Sandbox game where players can explore, create, and survive in a blocky, procedurally-generated world, limited only by their imagination.", "/images/minecraft.jpg"),

@@ -4,10 +4,16 @@ namespace ASP_Homework_Product.Controllers
 {
     public class CatalogController : Controller
     {
+        private readonly ProductsRepository productsRepository;
+
+        public CatalogController(ProductsRepository productsRepository)
+        {
+            this.productsRepository = productsRepository;
+        }
+
         public IActionResult Index()
         {
-            ProductsRepository products = new ProductsRepository();
-            return View(products);
+            return View(productsRepository);
         }
     }
 }

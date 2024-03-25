@@ -54,13 +54,15 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
 }
 .footer {
   position: absolute;
@@ -185,6 +187,7 @@ body {
 .product-card__info-title {
     border-bottom: 2px solid black;
     padding-bottom: 5px;
+    font-weight: bold;
 }
 
 .product-card__info-description {

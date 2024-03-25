@@ -11,16 +11,22 @@ namespace ASP_Homework_Product.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        //private readonly ILogger<HomeController> _logger;
+        private readonly IProductRepository _productRepository;
+        public HomeController(IProductRepository productRepository)
         {
-            _logger = logger;
+            _productRepository = productRepository;
         }
+
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
 
         public IActionResult Index()
         {
-            return View();
+            var products = _productRepository.GetProducts();
+            return View(products);
         }
 
         public IActionResult Privacy()
@@ -33,5 +39,16 @@ namespace ASP_Homework_Product.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-    }
+
+        [HttpPost]
+		public IActionResult SearchIndex(string searchInfo)
+		{
+            if(searchInfo != null)
+            {
+                var products = _productRepository?.SearchProduct(searchInfo);
+                return View(products);
+            }
+            return RedirectToAction("Index");
+		}
+	}
 }

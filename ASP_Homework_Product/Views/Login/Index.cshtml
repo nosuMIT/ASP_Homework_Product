@@ -1,0 +1,25 @@
+﻿@model LoginUser
+<form method="post" asp-controller="login" asp-action="enter">
+    <div class="text-danger font-weight-bold" asp-validation-summary="All"></div>
+    <div class="text-center">
+        <div>
+            <label asp-for="Login">Логин</label>
+            <input asp-for="Login">
+            <span asp-validation-for="Login"></span>
+        </div>
+  
+        <br>
+        <div>
+            <label asp-for="Password">Пароль</label>
+            <input asp-for="Password" type="password">
+            <span asp-validation-for="Password"></span>
+        </div>
+        <br>
+
+        <input type="checkbox" name="checkBox">Запомнить меня?
+        <br>
+        <button class="btn btn-info mt-3" type="submit">Войти</button>
+        <br>
+        <a asp-controller="registry" asp-action="index">Зарегистрироваться</a>
+    </div>
+</form>

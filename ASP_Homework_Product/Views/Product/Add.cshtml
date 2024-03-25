@@ -1,0 +1,25 @@
+﻿@model Product
+<div class="text-center">
+	<form method="post">
+		<div class="text-danger font-weight-bold" asp-validation-summary="All"></div>
+		<div>
+			<label asp-for="Name">Введите название</label>
+			<input asp-for="Name" type="text">
+			<span asp-validation-for="Name"></span>
+		</div>
+		<br>
+		<div>
+			<label asp-for="Cost">Введите цену</label>
+			<input asp-for="Cost" type="text">
+			<span asp-validation-for="Cost"></span>
+		</div>
+		<br>
+		<div>
+			<label asp-for="Description">Введите описание</label>
+			<input asp-for="Description" type="text">
+			<span asp-validation-for="Description"></span>
+		</div>
+		<br>
+		<button type="submit" asp-controller="Product" asp-action="NewProduct">Создать</button>
+	</form>
+</div>

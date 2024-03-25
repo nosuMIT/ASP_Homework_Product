@@ -10,7 +10,7 @@
     @if (Model != null && Model.ProductsInCart.Count > 0)
     {
         <div class="cart">
-            @foreach (var product in Model.ProductsInCart.Distinct())
+            @foreach (var product in Model.ProductsInCart.Distinct().ToList())
             {
                 <div class="cart-item">
                     <img src=@product.ImagePath class="cart-item__img" asp-for=@product.ImagePath alt="@product.Name">
